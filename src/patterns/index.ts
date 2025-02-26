@@ -4,16 +4,25 @@ import { KeyboardController, XboxController, PS5Controller } from './adapter/Con
 import { Coffee, Milk, CoconutMilk, WhippedCream } from './decorator/BeverageDecorator';
 import { WarriorFactory, MageFactory, ArcherFactory } from './factory-method/CharacterFactory';
 
-const settings = GameSettings.getInstance();
-settings.setSetting('difficulty', 'hard');
-settings.setSetting('language', 'fr');
-settings.setSetting('volume', 80);
-settings.setSetting('isMuted', false);
+const gameSettings = GameSettings.getInstance();
 
-console.log(settings.getSetting('difficulty')); // Affiche "hard"
-console.log(settings.getSetting('language'));  // Affiche "fr"
-console.log(settings.getSetting('volume'));    // Affiche 80
-console.log(settings.getSetting('isMuted'));   // Affiche false
+// Lire les paramètres actuels
+console.log(`Difficulté : ${gameSettings.gameplay.difficulty}`);
+console.log(`Langue : ${gameSettings.gameplay.language}`);
+console.log(`Volume de la musique : ${gameSettings.audio.musicVolume}`);
+console.log(`Qualité graphique : ${gameSettings.graphics.quality}`);
+
+// Modifier les paramètres
+gameSettings.setGameplaySettings('hard', 'fr');
+gameSettings.setAudioSettings(50, 50);
+gameSettings.setGraphicsSettings('2560x1440', 'ultra');
+
+// Vérifier les nouveaux paramètres
+console.log(`Nouveaux paramètres :`);
+console.log(`Difficulté : ${gameSettings.gameplay.difficulty}`);
+console.log(`Langue : ${gameSettings.gameplay.language}`);
+console.log(`Volume de la musique : ${gameSettings.audio.musicVolume}`);
+console.log(`Qualité graphique : ${gameSettings.graphics.quality}`);
 
 const generalManagement = new Department('Direction Générale');
 const itDepartment = new Department('Département Technique');
