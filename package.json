@@ -1,0 +1,13 @@
+{
+  "name": "mon-projet",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "tsc",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "@types/node": "^16.11.7"
+  }
+}
